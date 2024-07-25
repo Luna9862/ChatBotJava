@@ -9,6 +9,8 @@ public class ChatBot {
         String name = askName(scanner);
         int age = guessAge(scanner);
         String birthMonth = askZodiacSign(scanner);
+        int birthYear = askBirthYear(scanner);
+        age = 2024 - birthYear; // Recalculate age based on birth year
         countToNumber(scanner);
         testProgrammingKnowledge(scanner);
         tellStory(name, age, birthMonth, scanner);
@@ -24,7 +26,7 @@ public class ChatBot {
         System.out.println("I'm sorry didn't catch that. Could you please repeat what your name is?");
         String name2 = scanner.nextLine();
         System.out.println("Nice to meet you, " + name2 + "!");
-        return name;
+        return name2;
     }
 
     private static int guessAge(Scanner scanner) {
@@ -120,6 +122,13 @@ public class ChatBot {
         return birthMonth;
     }
 
+    private static int askBirthYear(Scanner scanner) {
+        System.out.println("What year were you born?");
+        int birthYear = scanner.nextInt();
+        scanner.nextLine(); // consume newline
+        return birthYear;
+    }
+
     private static void countToNumber(Scanner scanner) {
         System.out.println("Pick a number and I'll count to it!");
         int number = scanner.nextInt();
@@ -158,8 +167,8 @@ public class ChatBot {
         String phone = scanner.nextLine();
 
         System.out.println("Once upon a time, there was a person named " + name + " who was " + age + " years old.");
-        System.out.println(name + " lived in " + location + " and used a " + phone + ".");
-        System.out.println("Born in " + birthMonth + " as a " + birthMonth + ", " + name + " had a unique perspective on life.");
-        System.out.println("And they lived happily ever after!");
+        System.out.println(name + " lived in " + location + " and used an " + phone + ".");
+        System.out.println("Being born in " + birthMonth  + ", " + name + " had a unique perspective on life.");
+        System.out.println("And he/she lived happily ever after!");
     }
 }
